@@ -61,6 +61,7 @@ public:
     for (size_t i = 0; i < bins.size(); i++)
       if (bins[i] > 0) return pow(_POW, (double) i + 0.5);
     die("Not implemented");
+    return 0.0;
   }
 
   double get_nth(double nth) {

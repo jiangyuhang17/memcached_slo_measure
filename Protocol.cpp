@@ -68,4 +68,5 @@ bool ProtocolMemcachedText::handle_response(evbuffer *input, bool &done) {
   }
 
   die("Shouldn't ever reach here...");
+  return false;
 }
