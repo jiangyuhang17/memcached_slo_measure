@@ -55,7 +55,7 @@ void Connection::start_loading() {
 
 void Connection::issue_set_or_get(double now) {
   char key[256];
-  snprintf(key, 256, "%0*" PRIu64, 30, (unsigned long)loader_issued);
+  snprintf(key, 256, "%0*" PRIu64, 30, lrand48() % options.records);
 
   if (drand48() < options.update) {
     int index = lrand48() % (1024 * 1024);

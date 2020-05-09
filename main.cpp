@@ -38,7 +38,7 @@ void wait_until_idle(struct event_base* base, vector<Connection*> & connections)
   }
 }
 
-void run(options_t options, ConnectionStats stats) {
+void run(options_t& options, ConnectionStats& stats) {
   struct event_base *base;
   struct evdns_base *evdns;
 
