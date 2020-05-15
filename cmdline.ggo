@@ -1,0 +1,24 @@
+package "memcached slo benchmark"
+version "1.0"
+usage "slo_benchmark -s server[:port] [options]"
+description "memcached benchmarking tool for latency measure"
+
+args "-c cpp --show-required --default-optional -l"
+
+option "server" s "Memcached server hostname[:port].  \
+Repeat to specify multiple servers." string multiple
+
+option "time" t "Maximum time to run (seconds)." int default="5"
+
+option "keysize" K "Length of memcached keys." int default="30"
+option "valuesize" V "Length of memcached values." int default="200"
+
+option "records" r "Number of memcached records to use.  \
+If multiple memcached servers are given, this number is divided \
+by the number of servers." int default="10000"
+
+option "ratio" R "Ratio of set/get commands." float default="0.0"
+
+option "connections" c "Connections to establish per server." int default="1"
+
+option "depth" d "Maximum depth to pipeline requests." int default="1"

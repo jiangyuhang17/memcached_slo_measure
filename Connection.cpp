@@ -47,19 +47,19 @@ void Connection::start_loading() {
     if (loader_issued >= options.records) break;
     char key[256];
     int index = lrand48() % (1024 * 1024);
-    snprintf(key, 256, "%0*" PRIu64, 30, (unsigned long)loader_issued);
-    issue_set(key, &random_char[index], 200);
+    snprintf(key, 256, "%0*" PRIu64, options.keysize, (unsigned long)loader_issued);
+    issue_set(key, &random_char[index], options.valuesize);
     loader_issued++;
   }
 }
 
 void Connection::issue_set_or_get(double now) {
   char key[256];
-  snprintf(key, 256, "%0*" PRIu64, 30, lrand48() % options.records);
+  snprintf(key, 256, "%0*" PRIu64, options.keysize, lrand48() % options.records);
 
-  if (drand48() < options.update) {
+  if (drand48() < options.ratio) {
     int index = lrand48() % (1024 * 1024);
-    issue_set(key, &random_char[index], 200, now);
+    issue_set(key, &random_char[index], options.valuesize, now);
   } else {
     issue_get(key, now);
   }
@@ -198,8 +198,8 @@ void Connection::read_callback() {
           if (loader_issued >= options.records) break;
           char key[256];
           int index = lrand48() % (1024 * 1024);
-          snprintf(key, 256, "%0*" PRIu64, 30, (unsigned long)loader_issued);
-          issue_set(key, &random_char[index], 200);
+          snprintf(key, 256, "%0*" PRIu64, options.keysize, (unsigned long)loader_issued);
+          issue_set(key, &random_char[index], options.valuesize);
           loader_issued++;
         }
       }

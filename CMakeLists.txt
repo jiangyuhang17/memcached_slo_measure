@@ -4,7 +4,7 @@ project(slo_benchmark VERSION 0.1.0)
 include(CTest)
 enable_testing()
 
-add_executable(slo_benchmark main.cpp Connection.cpp Protocol.cpp util.cpp)
+add_executable(slo_benchmark main.cpp Connection.cpp Protocol.cpp util.cpp cmdline.cpp)
 
 TARGET_LINK_LIBRARIES(slo_benchmark event)
 
