@@ -1,6 +1,6 @@
 /* -*- c++ -*- */
-#ifndef LOGHISTOGRAMSAMPLER_H
-#define LOGHISTOGRAMSAMPLER_H
+#ifndef LOGSAMPLER_H
+#define LOGSAMPLER_H
 
 #include <assert.h>
 #include <inttypes.h>
@@ -13,7 +13,7 @@
 
 #define _POW 1.1
 
-class LogHistogramSampler {
+class LogSampler {
 public:
   std::vector<uint64_t> bins;
 
@@ -22,8 +22,8 @@ public:
   double sum;
   double sum_sq;
 
-  LogHistogramSampler() = delete;
-  LogHistogramSampler(int _bins) : sum(0.0), sum_sq(0.0) {
+  LogSampler() = delete;
+  LogSampler(int _bins) : sum(0.0), sum_sq(0.0) {
     assert(_bins > 0);
 
     bins.resize(_bins + 1, 0);
@@ -90,7 +90,7 @@ public:
     return sum;
   }
 
-  void accumulate(const LogHistogramSampler &h) {
+  void accumulate(const LogSampler &h) {
     assert(bins.size() == h.bins.size());
 
     for (size_t i = 0; i < bins.size(); i++) bins[i] += h.bins[i];

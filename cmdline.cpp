@@ -27,11 +27,11 @@
 
 const char *gengetopt_args_info_purpose = "";
 
-const char *gengetopt_args_info_usage = "Usage: slo_benchmark -s server[:port] [options]";
+const char *gengetopt_args_info_usage = "Usage: slo_measure -s server[:port] [options]";
 
 const char *gengetopt_args_info_versiontext = "";
 
-const char *gengetopt_args_info_description = "memcached benchmarking tool for latency measure";
+const char *gengetopt_args_info_description = "memcached measureing tool for latency measure";
 
 const char *gengetopt_args_info_help[] = {
   "  -h, --help             Print help and exit",

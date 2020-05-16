@@ -3,7 +3,7 @@
 
 #include <inttypes.h>
 
-#include "LogHistogramSampler.h"
+#include "LogSampler.h"
 
 using namespace std;
 
@@ -12,9 +12,9 @@ public:
   ConnectionStats() : get_sampler(200), set_sampler(200), op_sampler(100),
     rx_bytes(0), tx_bytes(0), gets(0), sets(0), get_misses(0), skips(0) {}
   
-  LogHistogramSampler get_sampler;
-  LogHistogramSampler set_sampler;
-  LogHistogramSampler op_sampler;
+  LogSampler get_sampler;
+  LogSampler set_sampler;
+  LogSampler op_sampler;
   
   uint64_t rx_bytes, tx_bytes;  
   uint64_t gets, sets, get_misses;
@@ -56,7 +56,7 @@ public:
            "90th", "95th", "99th");
   }
 
-  void print_stats(const char *tag, LogHistogramSampler &sampler,
+  void print_stats(const char *tag, LogSampler &sampler,
                    bool newline = true) {
     if (sampler.total() == 0) {
       printf("%-7s %7.1f %7.1f %7.1f %7.1f %7.1f %7.1f %7.1f %7.1f",
