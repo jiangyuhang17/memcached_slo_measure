@@ -1,7 +1,7 @@
-package "memcached slo benchmark"
+package "memcached slo measure"
 version "1.0"
-usage "slo_benchmark -s server[:port] [options]"
-description "memcached benchmarking tool for latency measure"
+usage "slo_measure -s server[:port] [options]"
+description "memcached measureing tool for latency measure"
 
 args "-c cpp --show-required --default-optional -l"
 
