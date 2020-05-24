@@ -5,8 +5,12 @@
 ## building
 
 ```
+# Debian系列
 sudo apt-get update
-sudo apt-get install libevent-dev gengetopt
+sudo apt-get -y install libevent-dev
+
+# Redhat系列
+sudo yum -y install libevent-devel
 
 mkdir build
 cd build
